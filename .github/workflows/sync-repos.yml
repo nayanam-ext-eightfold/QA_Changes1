@@ -13,14 +13,14 @@ jobs:
     - name: Checkout QA_Changes1
       uses: actions/checkout@v3
       with:
-        repository: nayanam-ext-eightfold/QA_Changes1
+        repository: https://github.com/nayanam-ext-eightfold/QA_Changes1
         token: ${{ secrets.SECRET1 }}
         path: QA_Changes1
 
     - name: Checkout QA_Changes2
       uses: actions/checkout@v3
       with:
-        repository: nayanam-ext-eightfold/QA_Changes2
+        repository: https://github.com/nayanam-ext-eightfold/QA_Changes2
         path: QA_Changes2
         token: ${{ secrets.SECRET1 }}
 
