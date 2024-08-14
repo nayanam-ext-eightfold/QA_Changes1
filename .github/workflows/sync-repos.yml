@@ -15,7 +15,7 @@ jobs:
       with:
         repository: nayanam-ext-eightfold/QA_Changes1  # specify the correct repo1
         path: QA_Changes1
-        token: ${{ secrets.GITHUB_TOKEN }}
+        token: ${{ secrets.SECRET1 }}
 
     - name: Checkout QA_Changes2
       uses: actions/checkout@v3
