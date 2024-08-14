@@ -1,0 +1,33 @@
+name: Sync QA-Changes1 to QA-Changes2
+
+on:
+  push:
+    branches:
+      - main  # Adjust if you want to trigger on a different branch
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout QA-Changes1
+      uses: actions/checkout@v3
+
+    - name: Checkout QA-Changes2
+      uses: actions/checkout@v3
+      with:
+        repository: your-username/QA-Changes2  # Replace with your GitHub username
+        token: ${{ secrets.GITHUB_TOKEN }}  # Replace with PAT if needed
+
+    - name: Sync files
+      run: |
+        rsync -av --delete . ../QA-Changes2/  # Sync the files
+
+    - name: Commit and Push changes to QA-Changes2
+      run: |
+        cd ../QA-Changes2/
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
+        git add .
+        git commit -m "Sync from QA-Changes1"
+        git push
