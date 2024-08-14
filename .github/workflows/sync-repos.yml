@@ -18,7 +18,7 @@ jobs:
 
     - name: Sync changes to QA-Changes2
       env:
-        REPO2: nayanam-ext-eightfold/QA_Changes2  # replace with repo2 details 
+        REPO2: QA_Changes2  # replace with repo2 details 
         REPO2_TOKEN: ${{ secrets.SECRET1 }}  # Personal Access Token for repo2
       run: |
         git config --global user.email "action@github.com"
@@ -29,7 +29,7 @@ jobs:
         cd repo2
 
         # Copy changes from repo1 to repo2
-        cp -r ../repo1/* .
+        cp -r ../QA-Changes1/* .
 
         # Commit and push changes
         git add .
