@@ -18,7 +18,7 @@ jobs:
 
     - name: Sync changes to QA-Changes2
       env:
-        REPO2: nayanam-ext-eightfold/QA_Changes2  # replace with repo2 details
+        REPO2: nayanam-ext-eightfold/QA_Changes2  # replace with repo2 details 
         REPO2_TOKEN: ${{ secrets.SECRET1 }}  # Personal Access Token for repo2
       run: |
         git config --global user.email "action@github.com"
