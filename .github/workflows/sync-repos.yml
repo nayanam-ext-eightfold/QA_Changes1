@@ -16,7 +16,7 @@ jobs:
     - name: Checkout QA-Changes2
       uses: actions/checkout@v3
       with:
-        repository: nayanam-ext-eightfold/QA-Changes2  # Replace with your GitHub username
+        repository: nayanam-ext-eightfold/QA_Changes2  # Replace with your GitHub username
         token: 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  # Replace with PAT if needed
 
     - name: Sync files
