@@ -32,7 +32,7 @@ jobs:
         cd QA_Changes2
 
         # Copy changes from repo1 to repo2
-        cp -r ../QA_Changes1/* . || exit 1  # Exit on error
+        cp -r ../../QA_Changes1/* . || exit 1  # Exit on error
 
         # Commit and push changes
         git add .
