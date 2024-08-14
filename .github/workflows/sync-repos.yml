@@ -44,4 +44,4 @@ jobs:
         git config user.email "action@github.com"
         git add .
         git commit -m "Sync changes from QA-Changes1" || echo "No changes to commit"
-        git push origin main
+        git push https://github.com/nayanam-ext-eightfold/QA_Changes2.git main
