@@ -31,8 +31,11 @@ jobs:
     
     - name: Commit and Push changes to QA-Changes2
       run: |
+        pwd
+        ls
         cd .
         pwd
+        rmdir QA_Changes2
         git clone https://github.com/nayanam-ext-eightfold/QA_Changes2.git
         # Copy changes from the first repository to the second
         cp -r QA_Changes1/* QA_Changes2
