@@ -27,7 +27,7 @@ jobs:
         git clone https://x-access-token:${REPO2_TOKEN}@github.com/${REPO2}.git
 
         # Copy changes from repo1 (current working directory) to repo2 directory
-        cp -r ./* ./QA_Changes2/
+        cp -r ./* ./QA_Changes1/
 
         # Navigate to the cloned repo2 directory
         cd QA_Changes2
