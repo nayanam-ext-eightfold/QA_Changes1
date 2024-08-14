@@ -10,21 +10,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout QA-Changes1
+    - name: Checkout QA_Changes1
       uses: actions/checkout@v3
       with:
         repository: nayanam-ext-eightfold/QA_Changes1  # specify the correct repo1
         path: QA_Changes1
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Checkout QA-Changes2
+    - name: Checkout QA_Changes2
       uses: actions/checkout@v3
       with:
         repository: ${{ env.REPO2 }}  # now referencing env variable
         path: QA_Changes2
         token: ${{ secrets.REPO2_TOKEN }}
 
-    - name: Sync changes to QA-Changes2
+    - name: Sync changes to QA_Changes2
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
