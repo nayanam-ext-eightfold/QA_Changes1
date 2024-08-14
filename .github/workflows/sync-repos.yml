@@ -26,8 +26,8 @@ jobs:
     - name: Commit and Push changes to QA-Changes2
       run: |
         cd ../QA-Changes2/
-        git config user.name "nayanam-ext-eightfold"
-        git config user.email "nayana.m@ext.eightfold.ai"
+        git config user.name "GitHub Action"
+        git config user.email "action@github.com"
         git add .
         git commit -m "Sync from QA-Changes1"
         git push
