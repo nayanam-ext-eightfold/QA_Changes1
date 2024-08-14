@@ -26,7 +26,7 @@ jobs:
 
         # Clone repo2
         git clone https://x-access-token:${REPO2_TOKEN}@github.com/${REPO2}.git
-        cd QA-Changes2
+        cd ../QA-Changes2
 
         # Copy changes from repo1 to repo2
         cp -r ../QA-Changes1/* .
