@@ -27,7 +27,7 @@ jobs:
         # Clone repo2
         git clone https://x-access-token:$REPO2_TOKEN@github.com/${REPO2}.git || exit 1  # Exit on error
 
-        run: ls -la
+        ls -la
 
         cd ../QA-Changes2
 
