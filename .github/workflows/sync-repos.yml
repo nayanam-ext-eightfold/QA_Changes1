@@ -3,7 +3,7 @@ name: Sync QA-Changes1 to QA-Changes2
 on:
   push:
     branches:
-      - main  # Adjust if you want to trigger on a different branch
+      - main  # or the branch you want to watch for changes
 
 jobs:
   sync:
@@ -12,22 +12,26 @@ jobs:
     steps:
     - name: Checkout QA-Changes1
       uses: actions/checkout@v3
-
-    - name: Checkout QA-Changes2
-      uses: actions/checkout@v3
       with:
-        repository: nayanam-ext-eightfold/QA_Changes2  # Replace with your GitHub username
-        token: ${{ secrets.SECRET1 }}  # Replace with PAT if needed
+        repository: ${{ github.repository }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Sync files
+    - name: Sync changes to QA-Changes2
+      env:
+        REPO2: nayanam-ext-eightfold/QA_Changes2  # replace with repo2 details
+        REPO2_TOKEN: ${{ secrets.SECRET1 }}  # Personal Access Token for repo2
       run: |
-        rsync -av --delete . ../QA-Changes2/  # Sync the files
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
 
-    - name: Commit and Push changes to QA-Changes2
-      run: |
-        cd ../QA-Changes2/
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
+        # Clone repo2
+        git clone https://x-access-token:${REPO2_TOKEN}@github.com/${REPO2}.git
+        cd repo2
+
+        # Copy changes from repo1 to repo2
+        cp -r ../repo1/* .
+
+        # Commit and push changes
         git add .
-        git commit -m "Sync from QA-Changes1"
-        git push
+        git commit -m "Sync changes from repo1"
+        git push origin main  # or the branch you want to push to in repo2
