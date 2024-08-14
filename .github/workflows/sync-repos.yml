@@ -22,7 +22,7 @@ jobs:
       with:
         repository: nayanam-ext-eightfold/QA_Changes2
         path: QA_Changes2
-        token: ${{ secrets.SECRET1 }}
+        token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Sync files
       run: |
