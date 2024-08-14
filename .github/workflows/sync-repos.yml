@@ -13,26 +13,26 @@ jobs:
     - name: Checkout QA-Changes1
       uses: actions/checkout@v3
       with:
+        repository: ${{ github.repository }}
         token: ${{ secrets.GITHUB_TOKEN }}
 
     - name: Sync changes to QA-Changes2
       env:
-        REPO2: nayanam-ext-eightfold/QA_Changes2  # Replace with your destination repo details
-        REPO2_TOKEN: ${{ secrets.SECRET1 }}  # Personal Access Token for repo2
+        REPO2: nayanam-ext-eightfold/QA_Changes2  # replace with repo2 details 
+        REPO2_TOKEN: ${{ secrets.SECRET1 }}  # Use the secret name
       run: |
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
 
         # Clone repo2
-        git clone https://x-access-token:${REPO2_TOKEN}@github.com/${REPO2}.git
+        git clone https://x-access-token:$REPO2_TOKEN@github.com/${REPO2}.git || exit 1  # Exit on error
 
-        # Copy changes from repo1 (current working directory) to repo2 directory
-        cp -r ./* ./QA_Changes1/
+        cd nayanam-ext-eightfold/QA-Changes2
 
-        # Navigate to the cloned repo2 directory
-        cd QA_Changes2
+        # Copy changes from repo1 to repo2
+        cp -r ../QA-Changes1/* . || exit 1  # Exit on error
 
         # Commit and push changes
         git add .
-        git commit -m "Sync changes from QA-Changes1"
+        git commit -m "Sync changes from repo1" || exit 1  # Exit on error
         git push origin main  # or the branch you want to push to in repo2
