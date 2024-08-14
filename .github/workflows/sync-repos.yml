@@ -22,7 +22,7 @@ jobs:
       with:
         repository: ${{ env.REPO2 }}  # now referencing env variable
         path: QA_Changes2
-        token: ${{ secrets.REPO2_TOKEN }}
+        token: ${{ secrets.SECRET1 }}
 
     - name: Sync changes to QA_Changes2
       run: |
