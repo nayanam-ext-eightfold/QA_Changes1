@@ -17,7 +17,7 @@ jobs:
       uses: actions/checkout@v3
       with:
         repository: nayanam-ext-eightfold/QA_Changes2  # Replace with your GitHub username
-        token: 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  # Replace with PAT if needed
+        token: ${{ secrets.SECRET1 }}  # Replace with PAT if needed
 
     - name: Sync files
       run: |
