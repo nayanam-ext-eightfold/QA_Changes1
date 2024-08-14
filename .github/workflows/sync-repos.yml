@@ -25,10 +25,12 @@ jobs:
 
         # Clone repo2
         git clone https://x-access-token:${REPO2_TOKEN}@github.com/${REPO2}.git
-        cd QA_Changes2  # Navigate to the cloned repo directory
 
-        # Copy changes from repo1 to repo2
-        cp -r ../QA-Changes1/* .
+        # Copy changes from repo1 (current working directory) to repo2 directory
+        cp -r ./* ./QA_Changes2/
+
+        # Navigate to the cloned repo2 directory
+        cd QA_Changes2
 
         # Commit and push changes
         git add .
