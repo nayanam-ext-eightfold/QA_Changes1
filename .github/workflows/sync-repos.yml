@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout QA-Changes1
+    - name: Checkout QA_Changes1
       uses: actions/checkout@v3
       with:
         repository: ${{ github.repository }}
         token: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Sync changes to QA-Changes2
+    - name: Sync changes to QA_Changes2
       env:
         REPO2: nayanam-ext-eightfold/QA_Changes2  # replace with repo2 details 
         REPO2_TOKEN: ${{ secrets.SECRET1 }}  # Use the secret name
@@ -29,10 +29,10 @@ jobs:
 
         ls -la
 
-        cd /QA-Changes2
+        cd QA_Changes2
 
         # Copy changes from repo1 to repo2
-        cp -r ../QA-Changes1/* . || exit 1  # Exit on error
+        cp -r ../QA_Changes1/* . || exit 1  # Exit on error
 
         # Commit and push changes
         git add .
