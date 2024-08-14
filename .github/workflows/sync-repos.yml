@@ -24,11 +24,14 @@ jobs:
 
     - name: Sync files
       run: |
+        ls
         rsync -av --delete . ../QA_Changes2/ || true
     
     - name: Commit and Push changes to QA-Changes2
       run: |
         cd .
+        pwd
+        ls
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         git add .
