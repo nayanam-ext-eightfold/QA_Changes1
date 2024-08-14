@@ -3,7 +3,7 @@ name: Sync QA-Changes1 to QA-Changes2
 on:
   push:
     branches:
-      - main  # or the branch you want to watch for changes
+      - QA_Changes1  # or the branch you want to watch for changes
 
 jobs:
   sync:
