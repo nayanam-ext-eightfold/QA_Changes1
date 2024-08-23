@@ -34,13 +34,16 @@ jobs:
         ls
         cd .
         pwd
-        rm -rf QA_Changes2
-        git clone https://github.com/nayanam-ext-eightfold/QA_Changes2.git
-        # Copy changes from the first repository to the second
-        cp -r QA_Changes1/* QA_Changes2
+        # rm -rf QA_Changes2
+        # git clone https://github.com/nayanam-ext-eightfold/QA_Changes2.git
+        # # Copy changes from the first repository to the second
+        # cp -r QA_Changes1/* QA_Changes2
         cd QA_Changes2
+        ls
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
+        git config --global user.name
+        git config --global user.email
         git add .
         git commit -m "Sync changes from QA-Changes1" || echo "No changes to commit"
         git status
