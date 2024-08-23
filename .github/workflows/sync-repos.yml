@@ -42,8 +42,6 @@ jobs:
         ls
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
-        git config --global user.name
-        git config --global user.email
         git add .
         git commit -m "Sync changes from QA-Changes1" || echo "No changes to commit"
         git status
