@@ -1,5 +1,4 @@
 name: Sync QA-Changes1 to QA-Changes2
-
 on:
   push:
     branches:
