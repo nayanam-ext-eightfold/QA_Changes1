@@ -43,7 +43,10 @@ jobs:
         git config user.name "GitHub Action"
         git config user.email "action@github.com"
         git add .
-        git commit -m "Sync changes from QA-Changes1" || echo "No changes to commit"
-        git status
-        git branch
-        git push https://github.com/nayanam-ext-eightfold/QA_Changes2.git main
+        if git diff-index --quiet HEAD; then
+          echo "No changes to commit"
+        else  
+          git commit -m "Sync changes from QA-Changes1" || echo "No changes to commit"
+          git status
+          git branch
+          git push https://github.com/nayanam-ext-eightfold/QA_Changes2.git main
