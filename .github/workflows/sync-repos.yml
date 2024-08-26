@@ -9,15 +9,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    # - name: Checkout QA_Changes1
-    #   uses: actions/checkout@v3
-    #   with:
-    #     repository: nayanam-ext-eightfold/QA_Changes1
-    #     token: ${{ secrets.GITHUB_TOKEN }}
-    #     path: QA_Changes1
+    - name: Checkout QA_Changes1
+      uses: actions/checkout@v2
+      with:
+        repository: nayanam-ext-eightfold/QA_Changes1
+        token: ${{ secrets.GITHUB_TOKEN }}
+        path: QA_Changes1
         
     - name: Checkout QA_Changes2
-      uses: actions/checkout@v3
+      uses: actions/checkout@v2
       with:
         repository: nayanam-ext-eightfold/QA_Changes2
         path: QA_Changes2
