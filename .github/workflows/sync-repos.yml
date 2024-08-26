@@ -10,7 +10,7 @@ jobs:
 
     steps:
     - name: Checkout QA_Changes1
-      uses: actions/checkout@v1
+      uses: actions/checkout@v2
       with:
         repository: nayanam-ext-eightfold/QA_Changes1
         token: ${{ secrets.GITHUB_TOKEN }}
