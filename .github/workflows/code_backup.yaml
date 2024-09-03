@@ -23,8 +23,8 @@ jobs:
       # Copy the file to a destination directory within the GitHub Actions runner
       - name: Copy test.py to destination
         run: |
-          mkdir -p ~/Desktop
-          cp src/tests/test.py ~/Desktop/test.py
+          mkdir -p destination/
+          cp src/tests/test.py destination/
       
       - name: Upload test.py as artifact
         uses: actions/upload-artifact@v3
