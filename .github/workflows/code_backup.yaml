@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - main  # Replace with your branch name
+    paths:
+      - src/tests/test.py  
 
 jobs:
   copy-file:
@@ -25,6 +27,9 @@ jobs:
         run: |
           mkdir -p ~/Desktop
           cp src/tests/test.py ~/Desktop/test.py
+      
+      - name: List files in Desktop directory  # Debugging step
+        run: ls -R ~/Desktop    
       
       - name: Upload test.py as artifact
         uses: actions/upload-artifact@v3
