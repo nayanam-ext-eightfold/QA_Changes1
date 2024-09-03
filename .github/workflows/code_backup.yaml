@@ -25,3 +25,9 @@ jobs:
         run: |
           mkdir -p ~/Desktop
           cp src/tests/test.py ~/Desktop/test.py
+      
+      - name: Upload test.py as artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: backup-test-py
+          path: ~/Desktop/test.py    
