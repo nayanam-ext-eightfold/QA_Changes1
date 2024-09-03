@@ -1,52 +1,14 @@
-name: Sync QA-Changes1 to QA-Changes2
-on:
-  push:
-    branches:
-      - main  # or the branch you want to watch for changes
-
 jobs:
-  sync:
+  copy-files:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout QA_Changes1
-      uses: actions/checkout@v2
-      with:
-        repository: nayanam-ext-eightfold/QA_Changes1
-        token: ${{ secrets.GITHUB_TOKEN }}
-        path: QA_Changes1
-        
-    - name: Checkout QA_Changes2
-      uses: actions/checkout@v2
-      with:
-        repository: nayanam-ext-eightfold/QA_Changes2
-        path: QA_Changes2
-        token: ${{ secrets.GITHUB_TOKEN }}
+      # Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-    - name: Sync files
-      run: |
-        ls
-        rsync -avH --delete QA_Changes1/ QA_Changes2/
-        
-    - name: Commit and Push changes to QA-Changes2
-      run: |
-        pwd
-        ls
-        cd .
-        pwd
-        # rm -rf QA_Changes2
-        # git clone https://github.com/nayanam-ext-eightfold/QA_Changes2.git
-        # # Copy changes from the first repository to the second
-        # cp -r QA_Changes1/* QA_Changes2
-        cd QA_Changes2/
-        ls
-        git config user.name "GitHub Action"
-        git config user.email "action@github.com"
-        git add .
-        if git diff-index --quiet HEAD; then
-          echo "No changes to commit"
-        else  
-          git commit -m "Sync changes from QA-Changes1" || echo "No changes to commit"
-          git status
-          git branch
-          git push https://github.com/nayanam-ext-eightfold/QA_Changes2.git main
+      # Store files in a specific location
+      - name: Copy specific files
+        run: |
+          mkdir -p C:\Users\nayana.m\Desktop
+          cp -R path/to/your/files/* C:\Users\nayana.m\Desktop
