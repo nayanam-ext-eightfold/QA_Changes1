@@ -16,7 +16,10 @@ jobs:
         with:
           repository: nayanamadhusoodanan/QA_Changes1
           token: ${{ secrets.GITHUB_TOKEN }}
-
+     # Debugging step: List files in the src directory
+      - name: List files in src directory
+        run: ls -R src
+        
       # Copy the file to a destination directory within the GitHub Actions runner
       - name: Copy test.py to destination
         run: |
