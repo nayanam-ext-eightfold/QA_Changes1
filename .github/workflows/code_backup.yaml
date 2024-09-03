@@ -19,6 +19,9 @@ jobs:
      # Debugging step: List files in the src directory
       - name: List files in src directory
         run: ls -R src
+     # Debugging step: List files in the destination directory
+      - name: List files in src directory
+        run: ls -R destination  
         
       # Copy the file to a destination directory within the GitHub Actions runner
       - name: Copy test.py to destination
