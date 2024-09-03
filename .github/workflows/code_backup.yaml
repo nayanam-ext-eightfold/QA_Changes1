@@ -24,4 +24,4 @@ jobs:
       - name: Copy test.py to destination
         run: |
           mkdir -p ~/Desktop
-          cp nayanamadhusoodanan/QA_Changes1/src/test.py ~/Desktop/test.py
+          cp nayanamadhusoodanan/QA_Changes1/src/tests/test.py ~/Desktop/test.py
